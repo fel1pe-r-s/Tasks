@@ -23,8 +23,8 @@ A aplicação é uma lista de tarefas online que permite que os usuários criem,
 
 ## Autores
 
-- [@Emílio](https://github.com)
+- [@Emílio]()
 - [@felipe-rodrigues-s](https://github.com/felipe-rodrigues-s)
-- [@Paulo](https://github.com/)
-- [@Rogério](https://github.com/)
-- [@Wanderson](https://github.com/)
+- [@Paulo]()
+- [@Rogério]()
+- [@Wanderson]()

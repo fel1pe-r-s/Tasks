@@ -1,3 +1,136 @@
 * {
   font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #181824;
+  color: #ffffff;
+  height: 100vh;
+}
+#app {
+  display: grid;
+  grid-template-rows: 1fr 50px 2fr 100px;
+  height: 100vh;
+}
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.headerConteant {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.formInput,
+.formButton {
+  border-radius: 15px;
+  padding: 8px;
+}
+
+.formInput {
+  background: #25273c;
+}
+
+.formButton {
+  background: #5aff31;
+  color: #fff;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.container {
+  background: #25273c;
+  padding: 15px;
+  border-radius: 5px;
+}
+.tasksContainer {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+}
+i {
+  cursor: pointer;
+  margin: 2px;
+}
+.i {
+  color: #bf56ff;
+  padding: 5px;
+}
+.task {
+  padding: 15px;
+  display: flex;
+}
+label {
+  cursor: pointer;
+  margin: 2px;
+}
+#checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
+  border: 1px solid #bf56ff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#checkbox:before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 8px;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  opacity: 0;
+  transition: all 600ms ease-in-out;
+  transform: rotate(35deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#checkbox:checked:before {
+  opacity: 1;
+}
+#checkbox:checked {
+  background: rgb(230, 0, 250);
+  background: linear-gradient(
+    90deg,
+    rgba(230, 0, 250, 1) 0%,
+    rgba(153, 51, 241, 1) 38%,
+    rgba(82, 97, 234, 1) 95%
+  );
+}
+#checkbox:focus {
+  box-shadow: 0 0 5px rgba(191, 86, 255);
 }
