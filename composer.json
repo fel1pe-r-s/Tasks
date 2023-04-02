@@ -1,0 +1,13 @@
+{
+    "name": "1feli/tasks",
+    "description": "Faculdade Uniasselvi. Seminário interdisciplinar Implementação de uma Aplicação WEB.",
+    "authors": [
+        {
+            "name": "felipe",
+            "email": "1felipersilva1@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
