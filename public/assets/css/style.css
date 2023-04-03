@@ -58,19 +58,14 @@ body {
 #container {
   display: flex;
   justify-content: center;
-  gap: 15px;
 }
 
 .container {
-  background: #25273c;
   padding: 15px;
   border-radius: 5px;
-}
-.tasksContainer {
   display: flex;
   flex-direction: column;
-
-  justify-content: center;
+  flex: wrap;
 }
 
 ul {
