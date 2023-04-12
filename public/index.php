@@ -19,8 +19,12 @@
 	<div id="app">
 		<header id="header">
 			<div class="headerConteant">
-				<img class="logoImg" src="./assets/img/logo.png" alt="Logo prancheta com sibolo de checado no centro" />
+				<img class="logoImgScrum" src="./assets/img/scrum-board-animate.svg"
+					alt="Logo homem com marcador preenchendo a prancheta com sibolo de checado nas tarefas" />
 				<h1 class="logo" class="navbar-brand">Tasks</h1>
+				<div class="login">
+					<a href="./login.php">Sair</a>
+				</div>
 			</div>
 		</header>
 		<section id="formTask">
