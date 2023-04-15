@@ -15,7 +15,7 @@
   align-items: center;
   flex-wrap: wrap;
 }
-.mainLogin span {
+.mainLogin h2 span {
   color: #77ffc0;
 }
 .mainLogin h2 {
@@ -95,4 +95,14 @@ form {
   background: #00ff88;
   cursor: pointer;
   box-shadow: 0px 10px 40px -12px #00ff8852;
+}
+
+span.error {
+  display: flex;
+  padding: 0;
+  background: rgba(255, 0, 0, 0.2);
+}
+span.error.active {
+  border: 1px solid rgb(255, 0, 0);
+  padding: 0.4em;
 }
