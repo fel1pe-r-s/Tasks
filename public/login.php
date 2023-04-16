@@ -29,17 +29,17 @@
 		<h2>Faça login <br> Ou <span>crie</span> sua conta</h2>
 		<div class="login">
 			<section class="leftLogin">
-				<form id="CreateUser" action="createUser" method="post">
+				<form id="formCreateUser" action="index.php" method="post">
 					<div class="cardLogin">
 						<h3>Cria Usuário</h3>
 						<div class="textfield">
 							<label for="createUser">Cria Usuario</label>
-							<input type="text" name="createUser" id="createUser" placeholder="Digite o Usuário" required>
+							<input class="inputUser" type="text" name="createUser" id="createUser" placeholder="Digite o Usuário" required>
 							<span class="error"></span>
 						</div>
 						<div class="textfield">
-							<label for="createPassoword">Cria senha</label>
-							<input type="password" name="createPassoword" id="createPassoword" placeholder="Digite sua senha" required>
+							<label for="createPassword">Cria senha</label>
+							<input class="inputUser" type="password" name="createPassword" id="createPassword" placeholder="Digite sua senha" required>
 							<span class="error">
 
 							</span>
@@ -49,17 +49,17 @@
 				</form>
 			</section>
 			<section class="rightLogin">
-				<form id="LoginUser" action="userLogin.php" method="post">
+				<form id="formLoginUser" action="userLogin.php" method="post">
 					<div class="cardLogin">
 						<h3>Login</h3>
 						<div class="textfield">
 							<label for="user">Usuário</label>
-							<input type="text" name="user" id="user" placeholder="Digite o Usuário" required>
+							<input class="inputUser" type="text" name="user" id="user" placeholder="Digite o Usuário" required>
 							<span class="error"></span>
 						</div>
 						<div class="textfield">
 							<label for="passoword">Senha</label>
-							<input type="password" id="passoword" name="passoword" placeholder="Digite sua senha" required>
+							<input class="inputUser" type="password" id="passoword" name="passoword" placeholder="Digite sua senha" required>
 							<span class="error"></span>
 						</div>
 						<button class="btnLogin">Login</button>
