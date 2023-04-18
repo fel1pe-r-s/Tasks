@@ -7,7 +7,16 @@ if (!$userController->isLoggedIn()) {
 	header('Location: login.php');
 	exit;
 }
-/* dessa forma eu pego o id do meu user var_dump($_SESSION['user_id']) */
+
+require_once dirname(__FILE__, 2) . "/app/services/TasksService.php";
+
+
+$taskDAO = new TaskDAO();
+
+if (isset($_POST['createTask'])) {
+	$task = $_POST['task'];
+	$taskDAO->createTask($task);
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,7 +39,8 @@ if (!$userController->isLoggedIn()) {
 	<div id="app">
 		<header id="header">
 			<div class="headerConteant">
-				<img class="logoImgScrum" src="./assets/img/scrum-board-animate.svg" alt="Logo homem com marcador preenchendo a prancheta com sibolo de checado nas tarefas" />
+				<img class="logoImgScrum" src="./assets/img/scrum-board-animate.svg"
+					alt="Logo homem com marcador preenchendo a prancheta com sibolo de checado nas tarefas" />
 				<h1 class="logo" class="navbar-brand">Tasks</h1>
 				<div class="login">
 					<a href="./login.php">Sair</a>
@@ -38,13 +48,14 @@ if (!$userController->isLoggedIn()) {
 			</div>
 		</header>
 		<section id="formTask">
-			<form id="form">
+			<form id="form" action="index.php" method="POST">
 				<div class="formGroup">
 					<div class="inputTask">
 						<input name="task" type="text" class="formInput" placeholder="Exemplo: Lavar o carro">
 					</div>
 					<div class="submitTask">
-						<button type="submit" id="createTask" class="formButton"><i class="ph ph-plus"></i></button>
+						<button type="submit" name="createTask" id="createTask" class="formButton"><i
+								class="ph ph-plus"></i></button>
 					</div>
 				</div>
 			</form>
