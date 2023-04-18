@@ -1,7 +1,5 @@
-const fields = document.querySelectorAll("[required]");
-
-function validateField(field) {
-  function verifyErrors() {
+export function validateField(field) {
+  function verifyErrors(field) {
     let foundError = false;
     for (let erroKey in field.validity) {
       if (field.validity[erroKey] && !field.validity.valid) {
@@ -32,7 +30,7 @@ function validateField(field) {
       return "typeInvalide";
     }
     // Se todas as validações passarem, retorna false ou faça outra coisa aqui
-    return false;
+    return true;
   }
 
   function customMessage(typeError) {
@@ -62,7 +60,14 @@ function validateField(field) {
     }
   }
 
-  return function () {
+  return {
+    fieldRules,
+    customMessage,
+    setCustomMessage,
+    verifyErrors,
+  };
+
+  /*  ()=> {
     const verifyError = verifyErrors();
     const fieldRule = fieldRules();
 
@@ -75,7 +80,7 @@ function validateField(field) {
     } else {
       setCustomMessage();
     }
-  };
+  }; */
 }
 
 function customValidate(event) {
@@ -84,6 +89,8 @@ function customValidate(event) {
   validation();
 }
 
+const fields = document.querySelectorAll("[required]");
+
 fields.forEach((field) => {
   field.addEventListener("invalid", (event) => {
     event.preventDefault();
@@ -91,15 +98,3 @@ fields.forEach((field) => {
   });
   field.addEventListener("keyup", customValidate);
 });
-
-const formCreateUser = document.querySelector("#formCreateUser");
-const formLoginUser = document.querySelector("#formLoginUser");
-
-function eventList(form) {
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
-}
-
-eventList(formCreateUser);
-eventList(formLoginUser);

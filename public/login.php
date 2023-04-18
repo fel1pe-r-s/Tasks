@@ -1,3 +1,31 @@
+<?php
+require_once dirname(__FILE__, 2) . '/app/controller/createUserController.php';
+require_once dirname(__FILE__, 2) . '/app/controller/userController.php';
+
+
+if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+	$userController = new CreateUserController();
+
+	$user = $_POST['createUser'];
+	$pass = $_POST['createPassword'];
+
+	$userController->createUser($user, $pass);
+}
+
+
+if (isset($_POST['login']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+	$userController = new UserController();
+
+	$user = $_POST['user'];
+	$pass = $_POST['passoword'];
+
+	$resul = $userController->login($user, $pass);
+	if (!$resul) {
+		echo "<p>Login com erro<p>";
+	}
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -7,7 +35,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Lista de Tarefas</title>
 	<script src="./assets/js/script.js" async></script>
-	<script src="./assets/js/validaform.js" async></script>
+	<!-- 	<script src="./assets/js/validaform.js" async></script> -->
 	<link rel="icon" href="./assets/img/icon.png">
 	<link rel="stylesheet" href="./assets/css/style.css">
 	<link rel="stylesheet" href="./assets/css/styleLogin.css">
@@ -18,7 +46,6 @@
 </head>
 
 <body>
-
 	<header id="header">
 		<div class="headerConteant">
 			<img class="logoImgScrum" src="./assets/img/scrum-board-animate.svg" alt="Logo homem com marcador preenchendo a prancheta com sibolo de checado nas tarefas" />
@@ -29,7 +56,7 @@
 		<h2>Faça login <br> Ou <span>crie</span> sua conta</h2>
 		<div class="login">
 			<section class="leftLogin">
-				<form id="formCreateUser" action="index.php" method="post">
+				<form id="formCreateUser" action="login.php" method="POST">
 					<div class="cardLogin">
 						<h3>Cria Usuário</h3>
 						<div class="textfield">
@@ -44,12 +71,12 @@
 
 							</span>
 						</div>
-						<button type="submit" class="btnLogin">Cria Usuário</button>
+						<button type="submit" name="submit" class="btnLogin">Cria Usuário</button>
 					</div>
 				</form>
 			</section>
 			<section class="rightLogin">
-				<form id="formLoginUser" action="userLogin.php" method="post">
+				<form id="formLoginUser" action="login.php" method="post">
 					<div class="cardLogin">
 						<h3>Login</h3>
 						<div class="textfield">
@@ -62,7 +89,7 @@
 							<input class="inputUser" type="password" id="passoword" name="passoword" placeholder="Digite sua senha" required>
 							<span class="error"></span>
 						</div>
-						<button class="btnLogin">Login</button>
+						<button type="submit" name="login" class="btnLogin">Login</button>
 					</div>
 
 				</form>
