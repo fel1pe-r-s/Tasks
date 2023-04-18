@@ -1,10 +1,24 @@
 <?php
 require_once dirname(__FILE__, 3) . "/app/services/TasksService.php";
+require_once dirname(__FILE__, 3) . "/app/models/models.php";
 
 
-$taskDAO = new TaskDAO();
+class CreateTaskController
+{
+	private $taskDAO;
 
-if (isset($_POST['createTask'])) {
-	$task = $_POST['task'];
-	$taskDAO->createTask($task);
+	public function __construct()
+	{
+		$this->taskDAO = new TaskDAO();
+	}
+
+
+	public function createTask($fkuser, $task)
+	{
+		$newTask = new Task();
+		$newTask->setFkUser($fkuser);
+		$newTask->setTask($task);
+
+		return $this->taskDAO->createTask($newTask);
+	}
 }

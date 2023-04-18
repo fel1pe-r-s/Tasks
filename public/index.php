@@ -8,15 +8,17 @@ if (!$userController->isLoggedIn()) {
 	exit;
 }
 
-require_once dirname(__FILE__, 2) . "/app/services/TasksService.php";
+require_once dirname(__FILE__, 2) . '/app/controller/tasksController.php';
 
+if (isset($_POST['createTask']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+	$createTaskController = new CreateTaskController();
 
-$taskDAO = new TaskDAO();
-
-if (isset($_POST['createTask'])) {
+	$fkuser = $_SESSION['user_id'];
 	$task = $_POST['task'];
-	$taskDAO->createTask($task);
+
+	$createTaskController->createTask($fkuser, $task);
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -39,8 +41,7 @@ if (isset($_POST['createTask'])) {
 	<div id="app">
 		<header id="header">
 			<div class="headerConteant">
-				<img class="logoImgScrum" src="./assets/img/scrum-board-animate.svg"
-					alt="Logo homem com marcador preenchendo a prancheta com sibolo de checado nas tarefas" />
+				<img class="logoImgScrum" src="./assets/img/scrum-board-animate.svg" alt="Logo homem com marcador preenchendo a prancheta com sibolo de checado nas tarefas" />
 				<h1 class="logo" class="navbar-brand">Tasks</h1>
 				<div class="login">
 					<a href="./login.php">Sair</a>
@@ -54,8 +55,7 @@ if (isset($_POST['createTask'])) {
 						<input name="task" type="text" class="formInput" placeholder="Exemplo: Lavar o carro">
 					</div>
 					<div class="submitTask">
-						<button type="submit" name="createTask" id="createTask" class="formButton"><i
-								class="ph ph-plus"></i></button>
+						<button type="submit" name="createTask" id="createTask" class="formButton"><i class="ph ph-plus"></i></button>
 					</div>
 				</div>
 			</form>
