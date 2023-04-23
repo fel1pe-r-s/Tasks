@@ -54,6 +54,7 @@ body {
 
 .formInput {
   background: #25273c;
+  color: #fff;
 }
 
 .formButton {
@@ -93,7 +94,7 @@ label {
   cursor: pointer;
   margin: 2px;
 }
-#checkbox {
+.checkbox {
   appearance: none;
   width: 20px;
   height: 20px;
@@ -106,7 +107,7 @@ label {
   align-items: center;
   justify-content: center;
 }
-#checkbox:before {
+.checkbox:before {
   content: "";
   position: absolute;
   width: 5px;
@@ -120,10 +121,10 @@ label {
   align-items: center;
   justify-content: center;
 }
-#checkbox:checked:before {
+.checkbox:checked:before {
   opacity: 1;
 }
-#checkbox:checked {
+.checkbox:checked {
   background: rgb(230, 0, 250);
   background: linear-gradient(
     90deg,
@@ -132,6 +133,6 @@ label {
     rgba(82, 97, 234, 1) 95%
   );
 }
-#checkbox:focus {
+.checkbox:focus {
   box-shadow: 0 0 5px rgba(191, 86, 255);
 }

@@ -1,5 +1,4 @@
 <?php
-
 require_once dirname(__FILE__, 3) . "/app/services/UserService.php";
 require_once dirname(__FILE__, 3) . "/app/models/models.php";
 
