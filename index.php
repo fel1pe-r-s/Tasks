@@ -26,15 +26,15 @@ if (isset($_POST['createTask']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 	header('Location: index.php');
 }
 
-require_once dirname(__FILE__, 2) . '/app/controller/allTaskController.php';
+require_once './app/controller/allTaskController.php';
 
 $getTasks = new AllTaskController();
 
 $tasks = $getTasks->getAllTasksByUserId($fkuser);
 
 
-require_once dirname(__FILE__, 2) . '/app/controller/deleteTaskController.php';
-require_once dirname(__FILE__, 2) . '/app/controller/completeTaskController.php';
+require_once './app/controller/deleteTaskController.php';
+require_once './app/controller/completeTaskController.php';
 
 
 if (isset($_GET['inc']) == "delete") {
@@ -75,10 +75,10 @@ if (isset($_POST['btnRemoverSessao'])) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Lista de Tarefas</title>
-	<script src="./assets/js/script.js" async></script>
+	<script src="./public/assets/js/script.js" async></script>
 
-	<link rel="icon" href="./assets/img/icon.png">
-	<link rel="stylesheet" href="./assets/css/style.css">
+	<link rel="icon" href="./public/assets/img/icon.png">
+	<link rel="stylesheet" href="./public/assets/css/style.css">
 	<script src="https://unpkg.com/@phosphor-icons/web"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,7 +89,7 @@ if (isset($_POST['btnRemoverSessao'])) {
 	<div id="app">
 		<header id="header">
 			<div class="headerConteant">
-				<img class="logoImgScrum" src="./assets/img/scrum-board-animate.svg" alt="Logo homem com marcador preenchendo a prancheta com sibolo de checado nas tarefas" />
+				<img class="logoImgScrum" src="./public/assets/img/scrum-board-animate.svg" alt="Logo homem com marcador preenchendo a prancheta com sibolo de checado nas tarefas" />
 				<h1 class="logo" class="navbar-brand">Tasks</h1>
 				<div class="login">
 					<form method="post" action="index.php">

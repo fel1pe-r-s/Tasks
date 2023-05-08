@@ -1,6 +1,6 @@
 <?php
-require_once dirname(__FILE__, 2) . '/app/controller/createUserController.php';
-require_once dirname(__FILE__, 2) . '/app/controller/userController.php';
+require_once './app/controller/createUserController.php';
+require_once './app/controller/userController.php';
 header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
@@ -46,11 +46,11 @@ if (isset($_SESSION['message'])) {
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Lista de Tarefas</title>
-	<script src="./assets/js/script.js" async></script>
-	<!-- 	<script src="./assets/js/validaform.js" async></script> -->
-	<link rel="icon" href="./assets/img/icon.png">
-	<link rel="stylesheet" href="./assets/css/style.css">
-	<link rel="stylesheet" href="./assets/css/styleLogin.css">
+	<script src="./public/assets/js/script.js" async></script>
+	<!-- 	<script src="./public/assets/js/validaform/validaform.js" async></script> -->
+	<link rel="icon" href="./public/assets/img/icon.png">
+	<link rel="stylesheet" href="./public/assets/css/style.css">
+	<link rel="stylesheet" href="./public/assets/css/styleLogin.css">
 	<script async src="https://unpkg.com/@phosphor-icons/web"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,7 +60,7 @@ if (isset($_SESSION['message'])) {
 <body>
 	<header id="header">
 		<div class="headerConteant">
-			<img class="logoImgScrum" src="./assets/img/scrum-board-animate.svg" alt="Logo homem com marcador preenchendo a prancheta com sibolo de checado nas tarefas" />
+			<img class="logoImgScrum" src="./public/assets/img/scrum-board-animate.svg" alt="Logo homem com marcador preenchendo a prancheta com sibolo de checado nas tarefas" />
 			<h1 class="logo" class="navbar-brand">Tasks</h1>
 		</div>
 	</header>
