@@ -1,6 +1,4 @@
 <?php
-require_once dirname(__FILE__, 3) . '/app/database/connection.php';
-require_once dirname(__FILE__, 3) . '/app/models/models.php';
 
 class TaskDAO
 {
@@ -8,26 +6,25 @@ class TaskDAO
 
 	public function __construct()
 	{
-		$this->db = (new Conection())->connect();
+		$this->db = (new Connection())->connect();
 	}
+
 
 	public function createTask(Task $task)
 	{
 		$query = 'INSERT INTO tb_tasks (fk_user, task) VALUES (?, ?)';
 
 		$stmt = $this->db->prepare($query);
-		$stmt->bindValue(1, $task->getFkUser(), PDO::PARAM_INT);
-		$stmt->bindValue(2, $task->getTask(), PDO::PARAM_STR);
+		$stmt->bindValue(1, $task->getFkUser(), SQLITE3_INTEGER);
+		$stmt->bindValue(2, $task->getTask(), SQLITE3_TEXT);
 
 		if ($stmt->execute()) {
-			$task->setId($this->db->lastInsertId());
+			$task->setId($this->db->lastInsertRowID());
 			return true;
 		} else {
 			return false;
 		}
 	}
-
-
 
 	public function getAllTasksByUserId($userId)
 	{
@@ -37,9 +34,9 @@ class TaskDAO
 								JOIN tb_status ON tb_status.id = tb_tasks.fk_status
 								WHERE td_user.id = ?';
 		$stmt = $this->db->prepare($query);
-		$stmt->bindValue(1, $userId, PDO::PARAM_INT);
-		$stmt->execute();
-		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$stmt->bindValue(1, $userId, SQLITE3_INTEGER);
+		$result = $stmt->execute();
+		$result = $result->fetchArray(SQLITE3_ASSOC);
 
 		return $result;
 	}
@@ -50,8 +47,8 @@ class TaskDAO
 		$query = 'DELETE FROM tb_tasks WHERE id = ? AND fk_user = ?';
 
 		$stmt = $this->db->prepare($query);
-		$stmt->bindValue(1, $task->getId(), PDO::PARAM_INT);
-		$stmt->bindValue(2, $task->getFkUser(), PDO::PARAM_INT);
+		$stmt->bindValue(1, $task->getId(), SQLITE3_INTEGER);
+		$stmt->bindValue(2, $task->getFkUser(), SQLITE3_INTEGER);
 
 		if ($stmt->execute()) {
 			return true;
@@ -65,9 +62,9 @@ class TaskDAO
 		$query = 'UPDATE tb_tasks SET fk_status = ? WHERE id = ? AND fk_user = ?;';
 
 		$stmt = $this->db->prepare($query);
-		$stmt->bindValue(1, $task->getFkStatus(), PDO::PARAM_INT);
-		$stmt->bindValue(2, $task->getId(), PDO::PARAM_INT);
-		$stmt->bindValue(3, $task->getFkUser(), PDO::PARAM_INT);
+		$stmt->bindValue(1, $task->getFkStatus(), SQLITE3_INTEGER);
+		$stmt->bindValue(2, $task->getId(), SQLITE3_INTEGER);
+		$stmt->bindValue(3, $task->getFkUser(), SQLITE3_INTEGER);
 		$success = $stmt->execute();
 		if ($success) {
 			return true;
