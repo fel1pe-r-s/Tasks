@@ -1,7 +1,11 @@
 <?php
 require_once dirname(__FILE__, 2) . '/app/controller/createUserController.php';
 require_once dirname(__FILE__, 2) . '/app/controller/userController.php';
-
+header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
+header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 
 if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 	$userController = new CreateUserController();
@@ -24,6 +28,8 @@ if (isset($_POST['login']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 		echo "<p>Login com erro<p>";
 	}
 }
+
+
 ?>
 
 <!DOCTYPE html>

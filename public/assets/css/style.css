@@ -136,3 +136,7 @@ label {
 .checkbox:focus {
   box-shadow: 0 0 5px rgba(191, 86, 255);
 }
+
+.check {
+  text-decoration: line-through;
+}
