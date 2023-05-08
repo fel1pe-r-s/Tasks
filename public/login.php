@@ -23,10 +23,16 @@ if (isset($_POST['login']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 	$user = $_POST['user'];
 	$pass = $_POST['passoword'];
 
-	$resul = $userController->login($user, $pass);
-	if (!$resul) {
-		echo "<p>Login com erro<p>";
-	}
+	$userController->login($user, $pass);
+}
+
+session_start();
+
+
+// Verificar se a mensagem de erro está definida
+if (isset($_SESSION['message'])) {
+	echo $_SESSION['message'];
+	unset($_SESSION['message']); // Limpar a variável de sessão após exibir a mensagem
 }
 
 
@@ -65,6 +71,7 @@ if (isset($_POST['login']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 				<form id="formCreateUser" action="login.php" method="POST">
 					<div class="cardLogin">
 						<h3>Cria Usuário</h3>
+
 						<div class="textfield">
 							<label for="createUser">Cria Usuario</label>
 							<input class="inputUser" type="text" name="createUser" id="createUser" placeholder="Digite o Usuário" required>
