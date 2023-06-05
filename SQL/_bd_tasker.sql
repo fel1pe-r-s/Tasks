@@ -12,7 +12,7 @@ CREATE TABLE td_user (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   user VARCHAR(30),
   senha VARCHAR(40)
-)
+);
 
 create table tb_tasks(
 	id int not null primary key auto_increment,
@@ -22,4 +22,4 @@ create table tb_tasks(
     foreign key(fk_user) references td_user(id),
 	task text not null,
     data_cadastrado datetime not null default current_timestamp
-)
+);
