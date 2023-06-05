@@ -35,15 +35,29 @@ class UserDAO
 
 	public function getUserByLogin($user, $pass)
 	{
-		$sql = 'SELECT * FROM td_user WHERE user = ? LIMIT 1';
+		$sql = 'SELECT * FROM td_user WHERE user = ? AND senha = ? LIMIT 1';
 		$stmt = $this->db->prepare($sql);
 		$stmt->bindValue(1, $user, PDO::PARAM_STR);
+		$stmt->bindValue(2, $pass, PDO::PARAM_STR);
 		$stmt->execute();
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		if ($result && is_array($result) && !empty($result) && password_verify($pass, $result['senha'])) {
+		if ($result) {
 			return $result;
 		} else {
 			echo "Senha incorreta ou usuário não encontrado.";
-		}
+		} 
 	}
 }
+
+
+/* 		$sql = 'SELECT * FROM td_user WHERE user = ? AND senha = ? LIMIT 1';
+$stmt = $this->db->prepare($sql);
+$stmt->bindValue(1, $user, PDO::PARAM_STR);
+$stmt->bindValue(2, $pass, PDO::PARAM_STR);
+$stmt->execute();
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+if ($result) {
+	return $result;
+} else {
+	var_dump($result);
+} */

@@ -13,7 +13,7 @@ class CreateUserController
 
 	public function createUser($user, $pass)
 	{
-		$pass = password_hash($pass, PASSWORD_DEFAULT);
+		/* $pass = password_hash($pass, PASSWORD_DEFAULT); */
 
 		$newUser = new User();
 		$newUser->setUser($user);

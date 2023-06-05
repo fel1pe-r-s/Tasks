@@ -4,7 +4,7 @@
   "description": "Faculdade Uniasselvi. Seminário interdisciplinar Implementação de uma Aplicação WEB.",
   "main": "uma lista de tarefas online que permite que os usuários criem, visualizem e gerenciem uma lista de tarefas pessoal. A interface de usuário é projetada para ser simples e intuitiva, com uma lista de tarefas na página principal, onde os usuários podem ver todas as suas tarefas atuais.",
   "scripts": {
-    "php": "php -S localhost:8000 -t public"
+    "php": "php -S localhost:8000"
   },
   "repository": {
     "type": "git",
