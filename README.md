@@ -17,7 +17,6 @@ A aplicação é uma lista de tarefas online que permite que os usuários criem,
     CSS,
     JavaScript,
     PHP,
-    Sweetalert2,
     MySql,
     phpdotenv
 
@@ -91,7 +90,7 @@ Instale as dependências
 Inicie o servidor
 
 ```bash
-  npm run php
+  php -S localhost:8000 -t public
 ```
 
 ## Rodando localmente com o Xampp
